@@ -5,9 +5,6 @@ export type Content = string -- remove that, i needed that only for visual studi
 
 local AssetService = game:GetService("AssetService")
 local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local paths, sharedPaths = require(ReplicatedStorage.paths):get()
 
 local LocalPlayer = Players.LocalPlayer
 
@@ -22,10 +19,6 @@ handler.OkayValues = {
 }
 
 function handler:init(initer)
-	if not game:IsLoaded() then
-		game.Loaded:Wait()
-	end
-	initer.Events.HandlersLoaded:Wait()
 	print("Guardian status: checking.")
 	self = setmetatable({}, handler)
 	self.alert = false
@@ -133,3 +126,4 @@ function handler:init(initer)
 end
 
 return handler
+
